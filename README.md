@@ -1,5 +1,5 @@
-# WiCast
-Broadcast and listen for messages within your local area network via WiFi -- for iOS and Android
+# WiCast for iOS and Android
+Broadcast and listen for messages within your local area network via WiFi
 
 iOS-iOS communication -- confirmed working  
 Android-iOS communication -- inconclusive (my Android device is out of commission)  
