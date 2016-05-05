@@ -82,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Instantiate and run receiver and sender on dedicated threads
+     * @return boolean indicating whether setup was successful
+     */
     boolean setupConnection() {
         try {
             mReceiver = new ReceiveThread();
@@ -95,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Function to run on Android UI thread to update textview message log with received message
+     */
     private Runnable updateMessageView = new Runnable() {
         @Override
         public void run() {
@@ -102,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * Class to handle all outgoing packets on a dedicated thread
+     */
     private class SendThread extends Thread {
         DatagramSocket socket;
 
@@ -144,6 +154,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Class to handle all incoming packets on a dedicated thread
+     */
     private class ReceiveThread extends Thread {
         private boolean bRun = true;
         private String lastMessage = "";
