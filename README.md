@@ -1,7 +1,6 @@
 # WiCast
-Broadcast and receive messages as WiFi Chat  
-Just connect and begin broadcasting to anyone listening within your local area network  
-  
+Broadcast and listen for messages within your local area network via WiFi -- for iOS and Android
+
 iOS-iOS communication -- confirmed working  
 Android-iOS communication -- inconclusive (my Android device is out of commission)  
 PC(netcat)-iOS communication -- confirmed working  
