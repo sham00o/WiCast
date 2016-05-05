@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -22,36 +24,74 @@ public class MainActivity extends AppCompatActivity {
     final int HOST_PORT = 6666;
     final int PORT = 5555;
 
-    TextView mMessageView;
-    Button mSendButton;
+    TextView mMessageView, mStatusView;
+    EditText mMessageField, mNameField;
+    Button mSendButton, mConnectButton;
     ReceiveThread mReceiver;
     SendThread mSender;
+
+    boolean isConnected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setupConnection();
-
+        mStatusView = (TextView) findViewById(R.id.statusView);
         mMessageView = (TextView) findViewById(R.id.messageView);
+        mMessageView.setText("");
+
+        mNameField = (EditText) findViewById(R.id.nameField);
+        mMessageField = (EditText) findViewById(R.id.messageField);
+        mMessageField.clearFocus();
+
+        mConnectButton = (Button) findViewById(R.id.connectButton);
+        mConnectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!isConnected) {
+                    if(!setupConnection()){
+                        Toast.makeText(getApplicationContext(), "Cannot connect. Make sure you are on WiFi", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    mConnectButton.setText("Disconnect");
+                    mStatusView.setText("STATUS: connected");
+                    isConnected = true;
+                } else {
+                    mReceiver.kill();
+                    mSender.kill();
+                    mConnectButton.setText("Connect");
+                    mStatusView.setText("STATUS: disconnected");
+                    isConnected = false;
+                }
+            }
+        });
         mSendButton = (Button) findViewById(R.id.sendButton);
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSender.send("uhh.. hi?");
+                if(!isConnected) {
+                    Toast.makeText(getApplicationContext(), "Not connected. Tap the connect button", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                String name = mNameField.getText().toString();
+                String message = mMessageField.getText().toString();
+                mSender.send(name+": "+message);
+                mMessageField.setText("");
             }
         });
     }
 
-    void setupConnection() {
+    boolean setupConnection() {
         try {
             mReceiver = new ReceiveThread();
             mReceiver.start();
             mSender = new SendThread();
             mSender.start();
+            return true;
         } catch(Exception e) {
             Log.e("Socket", "Failed to setup sockets");
+            return false;
         }
     }
 
@@ -69,12 +109,8 @@ public class MainActivity extends AppCompatActivity {
             socket = null;
 
             try {
-                socket = new DatagramSocket(HOST_PORT);
+                socket = new DatagramSocket(PORT);
                 socket.setBroadcast(true);
-                String udpMsg = "hello world to "+HOST_PORT;
-                DatagramPacket dp;
-                dp = new DatagramPacket(udpMsg.getBytes(), udpMsg.length(), getBroadcastAddress(), HOST_PORT);
-                socket.send(dp);
 
             } catch(Throwable e) {
                 e.printStackTrace();
@@ -92,12 +128,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void kill() {
-            socket.close();
+            if(socket != null)
+                socket.close();
         }
 
         private InetAddress getBroadcastAddress() throws IOException {
             WifiManager wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-            DhcpInfo dhcp = wifi.getDhcpInfo(); // handle null somehow
+            DhcpInfo dhcp = wifi.getDhcpInfo();
 
             int broadcast = (dhcp.ipAddress & dhcp.netmask) | ~dhcp.netmask;
             byte[] quads = new byte[4];
