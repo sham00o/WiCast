@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="959c898c603e9e5725aca56167f695958c43bad4">
+        <dex dex="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_d0b67d093eb94376522ac0538a916e02773fb90e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.3.0_f5905f12be5c5cd96ab8941ae0f62b07fa8fd9cc/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_e7cf55301fcafd5de29de26d221565f25d2ce019/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.3.0_08e1030e52942ccdb9c0968d779db774d478d0cb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5d0b284f3cc1efa5c195d15dc12b1469edd7cf40">
+        <dex dex="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_48945cd7002bac37affb74d502e21b3f7663b044/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.3.0_4f18f2100a53a0da313f8ec20760c4e966839cb7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Sambook/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_c685cde50a9e5566826a759220c318d5216b42c6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/Users/Sambook/AndroidStudioProjects/WiCast/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.3.0_5516ad41bc5092bb03cecac67d7bc7962ec886cf/classes.dex" />
+    </item>
+
+</items>
